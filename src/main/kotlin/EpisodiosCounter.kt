@@ -3,10 +3,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.*
+import androidx.compose.runtime.saveable.rememberSaveable
 
 @Composable
 fun EpisodiosCounter() {
-    var episodiosContador by remember { mutableStateOf(0) }
+    var episodiosContador by rememberSaveable() { mutableStateOf(0) }
     var mostrarTarea by remember { mutableStateOf(false) }
     Column {
         if (episodiosContador > 0){
