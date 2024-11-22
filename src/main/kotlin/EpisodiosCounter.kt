@@ -7,9 +7,9 @@ import androidx.compose.runtime.*
 @Composable
 fun EpisodiosCounter() {
     var episodiosContador by remember { mutableStateOf(0) }
+    var mostrarTarea by remember { mutableStateOf(false) }
     Column {
         if (episodiosContador > 0){
-            var mostrarTarea by remember { mutableStateOf(true) }
             if (mostrarTarea){
                 WellnessTaskItem("Tienes que verte los episopdios de DanDaDan profe", onClose = { mostrarTarea = false })
             }
@@ -20,6 +20,7 @@ fun EpisodiosCounter() {
             Button(
                 onClick = {
                     episodiosContador++
+                    mostrarTarea = true
                 }
             ) {
                 Text("Ver episodio")
