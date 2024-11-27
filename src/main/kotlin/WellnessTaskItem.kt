@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.compose.material.Checkbox
+import androidx.compose.runtime.saveable.rememberSaveable
 
 @Composable
 fun WellnessTaskItem(
@@ -20,7 +21,7 @@ fun WellnessTaskItem(
     onClose: () -> Unit,
     modifier: Modifier = Modifier
 ) {
-    val checkedState = remember{ mutableStateOf(true) }
+    val checkedState = rememberSaveable(){ mutableStateOf(true) }
     Row(
         modifier = modifier, verticalAlignment = Alignment.CenterVertically
     ) {
