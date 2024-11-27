@@ -17,6 +17,7 @@ fun App() {
     MaterialTheme {
         Surface {
             EpisodiosCounter()
+            WellnessTaskList()
         }
     }
 }
