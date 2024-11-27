@@ -1,4 +1,5 @@
 import androidx.compose.desktop.ui.tooling.preview.Preview
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -16,8 +17,11 @@ import androidx.compose.ui.window.application
 fun App() {
     MaterialTheme {
         Surface {
-            EpisodiosCounter()
-            WellnessTaskList()
+            Column {
+                EpisodiosCounter()
+                WellnessTaskList()
+            }
+
         }
     }
 }
