@@ -6,14 +6,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.modifier.modifierLocalMapOf
 
 
-data class WellnessTask(val id: Int, val label: String)
-
-fun getWellnessTasks() = List(30) { i -> WellnessTask(i, "Task # $i")}
-
+//data class WellnessTask(val id: Int, val label: String)
 
 @Composable
 fun WellnessTaskList(
-    listaItems: List<WellnessTask> = remember { getWellnessTasks() }
+    listaItems: List<WellnessTask>,
+    onCheckedTask(),
+    onCloseTask()
 ) {
     LazyColumn (
         state = rememberLazyListState()
