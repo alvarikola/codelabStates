@@ -11,14 +11,14 @@ import androidx.compose.ui.modifier.modifierLocalMapOf
 @Composable
 fun WellnessTaskList(
     listaItems: List<WellnessTask>,
-    onCheckedTask: (task: Int, checked: Boolean) -> Unit,
-    onCloseTask: (task: Int) -> Unit
+    onCheckedTask: (task: WellnessTask, checked: Boolean) -> Unit,
+    onCloseTask: (task: WellnessTask) -> Unit
 ) {
     LazyColumn (
         state = rememberLazyListState()
     ){
         items(listaItems) {
-            WellnessTaskItem(taskName = it.label, onClose = onCloseTask(it.id))
+            WellnessTaskItem(task = it, onClose = { onCloseTask(it) })
         }
     }
 }

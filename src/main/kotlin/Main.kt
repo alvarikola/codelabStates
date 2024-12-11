@@ -14,12 +14,20 @@ import androidx.compose.ui.window.application
 
 @Composable
 @Preview
-fun App() {
+fun App(viewModel: EjemploViewModel) {
     MaterialTheme {
         Surface {
             Column {
                 EpisodiosCounter()
-                WellnessTaskList()
+                WellnessTaskList(
+                    listaItems = viewModel.tasks, // Pasamos la lista de tareas desde el ViewModel
+                    onCheckedTask = { task, checked ->
+                        viewModel.changeTaskCheked(task, checked)
+                    },
+                    onCloseTask = { task ->
+                        viewModel.remove(task)
+                    }
+                )
             }
 
         }
@@ -27,7 +35,8 @@ fun App() {
 }
 
 fun main() = application {
+    val viewModel = EjemploViewModel()
     Window(onCloseRequest = ::exitApplication) {
-        App()
+        App(viewModel)
     }
 }

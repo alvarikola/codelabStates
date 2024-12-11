@@ -17,8 +17,8 @@ import androidx.compose.runtime.saveable.rememberSaveable
 
 @Composable
 fun WellnessTaskItem(
-    taskName: String,
-    onClose: (task: Int) -> Unit,
+    task: WellnessTask,
+    onClose: (task: WellnessTask) -> Unit,
     modifier: Modifier = Modifier
 ) {
     val checkedState = rememberSaveable(){ mutableStateOf(true) }
@@ -27,13 +27,13 @@ fun WellnessTaskItem(
     ) {
         Text(
             modifier = Modifier.weight(1f).padding(start = 16.dp),
-            text = taskName
+            text = task.label
         )
         Checkbox(
             checked = checkedState.value,
             onCheckedChange = {checkedState.value = it}
         )
-        IconButton(onClick = onClose()) {
+        IconButton(onClick = { onClose(task) }) {
             Icon(Icons.Filled.Close, contentDescription = "Close")
         }
     }
